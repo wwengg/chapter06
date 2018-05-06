@@ -16,8 +16,8 @@ public class CustomerController {
 
     @RequestMapping(value = "/doDel")
     public String doDel(Customer id)throws Exception {
-        CustomerDao DeleteCustomerTest = new CustomerDao();
-        DeleteCustomerTest.deleteCustomerTest(id);
+        CustomerDao Delete = new CustomerDao();
+        Delete.deleteCustomerTest(id);
         return "/success.jsp";
     }
 
