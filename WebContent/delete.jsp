@@ -12,9 +12,10 @@
 </head>
 <body>
     <form action="/doDel" method="post">
-        删除用户ID：<input type="text" name="id">
-        <button type="submit" value="删除" />
+        删除用户ID：<input type="text" name="id"><br/>
+        <input type="submit" value="删除" />
     </form>
+    返回首页
 
 </body>
 </html>

@@ -4,26 +4,33 @@ import com.itheima.Util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 
 import com.itheima.po.Customer;
+import org.springframework.ui.Model;
 
 public class CustomerDao {
 
-	public void findCustomerByIdTest() throws Exception {
-		SqlSession sqlSession = MybatisUtils.getSession();
+	public Customer findCustomerByIdTest(Integer id) throws Exception {
+	    SqlSession sqlSession = MybatisUtils.getSession();
 		Customer customer = sqlSession.selectOne("com.itheima.mapper"
-				  + ".CustomerMapper.findCustomerById", 1);
-		System.out.println(customer.toString());
+				  + ".CustomerMapper.findCustomerById", id);
+		System.out.println(customer);
 		sqlSession.close();
+		return customer;
+
+
 	}
 
-	public void findCustomerByNameTest() throws Exception{
-		SqlSession sqlSession = MybatisUtils.getSession();
+	public List<Customer> findCustomerByNameTest(String username) throws Exception{
+	    SqlSession sqlSession = MybatisUtils.getSession();
 	    List<Customer> customers = sqlSession.selectList("com.itheima.mapper"
-					+ ".CustomerMapper.findCustomerByName", "j");
+					+ ".CustomerMapper.findCustomerByName", username);
 	    for (Customer customer : customers) {
 	        System.out.println(customer);
 	    }
+
 	    // 5、关闭SqlSession
 	    sqlSession.close();
+	    return customers;
+
 	}
 	
 	/**
@@ -51,15 +58,10 @@ public class CustomerDao {
 	/**
 	 * 更新客户
 	 */
-	public void updateCustomerTest() throws Exception{
+	public void updateCustomerTest(Customer customer) throws Exception{
 		SqlSession sqlSession = MybatisUtils.getSession();
 	    // 4、SqlSession执行更新操作
 	    // 4.1创建Customer对象，对对象中的数据进行模拟更新
-	    Customer customer = new Customer();
-	    customer.setId(2);
-	    customer.setUsername("rose");
-	    customer.setJobs("programmer");
-	    customer.setPhone("13311111111");
 	    // 4.2执行SqlSession的更新方法，返回的是SQL语句影响的行数
 	    int rows = sqlSession.update("com.itheima.mapper"
 	            + ".CustomerMapper.updateCustomer", customer);
