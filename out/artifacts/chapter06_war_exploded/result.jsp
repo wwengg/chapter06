@@ -19,10 +19,10 @@
                 <td>电话</td>
             </tr>
             <tr>
-                <td>${c.id}</td>
-                <td>${c.username}</td>
-                <td>${c.jobs}</td>
-                <td>${c.phone}</td>
+                <td>${c}</td>
+                <td>${c}</td>
+                <td>${c}</td>
+                <td>${c}</td>
             </tr>
         </table>
 <a href="find.jsp">重新查询</a>

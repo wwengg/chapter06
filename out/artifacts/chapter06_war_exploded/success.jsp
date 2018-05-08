@@ -11,6 +11,6 @@
     <title>成功</title>
 </head>
 <body>
-    成功
+    成功<a href="/index.jsp">返回首页</a>
 </body>
 </html>
