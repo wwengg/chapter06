@@ -15,10 +15,10 @@
         用户名：<input type="text" name="username" /><br/>
         工  作：<input type="text" name="jobs" /><br/>
         电  话：<input type="text" name="phone" /><br/>
-        <input type="submit" value="提交">删除用户
+        <input type="submit" value="提交">
     </form>
     <a href="/update.jsp">修改用户</a>
     <a href="find.jsp">查询用户</a>
-    <a href="delete.jsp"></a>
+    <a href="delete.jsp">删除用户</a>
 </body>
 </html>
