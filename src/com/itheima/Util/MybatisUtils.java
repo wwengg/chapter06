@@ -9,15 +9,19 @@ import java.io.Reader;
 
 public class MybatisUtils {
     private static SqlSessionFactory sqlSessionFactory = null;
+
     static {
         try {
             Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-            sqlSessionFactory =  new SqlSessionFactoryBuilder().build(reader);
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static SqlSession getSession() {
+
+
         return sqlSessionFactory.openSession();
     }
 }

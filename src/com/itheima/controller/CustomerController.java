@@ -15,7 +15,7 @@ public class CustomerController {
     public String doAdd(Customer customer)throws Exception{
         CustomerDao AddCustmertest = new CustomerDao();
         AddCustmertest.addCustomerTest(customer);
-        return "/index.jsp";
+        return "/success.jsp";
     }
 
     @RequestMapping(value = "/doDel")
