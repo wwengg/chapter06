@@ -3,10 +3,29 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace表示命名空间 -->
 <mapper namespace="com.itheima.mapper.CustomerMapper">
+
+	<!--定义查询的列-->
+	<sql id="customerColumns">
+		id,username,jobs,phone
+	</sql>
+	<!--定义要查询的表-->
+	<sql id="someinclude">
+		form<include refid="${include_target}"
+	</sql>
+	<!--定义表的前缀名-->
+	<sql id="tablename">
+		${prefix}customer
+	</sql>
     <!--根据客户编号获取客户信息 -->
 	<select id="findCustomerById" parameterType="Integer"
 		resultType="com.itheima.po.Customer">
-		select * from t_customer where id = #{id}
+		select
+		 <include refid="customerColumns"/>
+		<include refid="someinclude">
+			<property name="prefix" value="t_" />
+			<property name="include_target" value="tablename"/>
+		</include>
+		 where id = #{id}
 	</select>
 	
 	<!--根据客户名模糊查询客户信息列表-->
