@@ -44,6 +44,7 @@ public class CustomerDao {
 		int rows = sqlSession.insert("com.itheima.mapper"
 					+ ".CustomerMapper.addCustomer", customer);
 	    // 4.3通过返回结果判断插入操作是否执行成功
+		System.out.println(customer.getId());
 	    if(rows > 0){
 	        System.out.println("您成功插入了"+rows+"条数据！");
 	    }else{

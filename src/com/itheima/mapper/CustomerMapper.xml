@@ -17,7 +17,7 @@
 	</select>
 	
 	<!-- 添加客户信息 -->
-	<insert id="addCustomer" parameterType="com.itheima.po.Customer">
+	<insert id="addCustomer" parameterType="com.itheima.po.Customer" keyProperty="id" useGeneratedKeys="true" >
 	    insert into t_customer(username,jobs,phone)
 	    values(#{username},#{jobs},#{phone})
 	</insert>
